@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { ScrambleText } from "@/components/ui/ScrambleText";
 import { services } from "@/lib/data";
 
 export function Services() {
@@ -31,8 +32,8 @@ export function Services() {
     <section id="services" className="section-divider py-12 md:py-16">
       <div className="container-shell pt-6 md:pt-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:gap-6">
-          <h2 className="display max-w-4xl text-[2.8rem] text-[var(--color-foreground)] sm:text-[3.5rem] md:text-[5rem] lg:text-[6rem]">
-            How We Can Help
+          <h2 className="type-display-title max-w-4xl">
+            <ScrambleText>How We Can Help</ScrambleText>
           </h2>
           <SectionLabel label="(SERVICES)" />
         </div>
@@ -46,10 +47,9 @@ export function Services() {
             const isOpen = active === index;
 
             return (
-              <motion.div
+              <motion.button
                 key={service.title}
-                role="button"
-                tabIndex={0}
+                type="button"
                 aria-expanded={isOpen}
                 className={`w-full border-b border-white/10 px-0 py-5 text-left transition-colors duration-300 md:py-6 ${
                   isOpen ? "bg-white/[0.02]" : "bg-transparent hover:bg-white/[0.01]"
@@ -113,17 +113,22 @@ export function Services() {
                     </AnimatePresence>
                     <div>
                       <motion.h3
-                        className="text-xl font-semibold tracking-[-0.05em] text-[var(--color-foreground)] sm:text-2xl md:text-3xl lg:text-4xl"
+                        className="type-card-title text-[var(--color-foreground)]"
                         animate={{
                           x: isOpen ? 8 : 0,
                           color: isOpen ? "rgba(255,255,255,1)" : "rgba(202,202,202,1)",
                         }}
                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                       >
-                        {service.title}
+                        <ScrambleText
+                          interactive={false}
+                          triggerKey={isOpen ? `service-${index}` : null}
+                        >
+                          {service.title}
+                        </ScrambleText>
                       </motion.h3>
                       <motion.p
-                        className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-muted)] sm:text-base md:leading-7"
+                        className="type-body mt-2 max-w-2xl text-sm sm:text-base"
                         animate={{ opacity: isOpen ? 1 : 0.82 }}
                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                       >
@@ -157,7 +162,7 @@ export function Services() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.button>
             );
           })}
         </div>

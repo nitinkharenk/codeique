@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/Button";
+import { ScrambleText } from "@/components/ui/ScrambleText";
 
 type StatusPageProps = {
   eyebrow: string;
@@ -16,17 +17,17 @@ export function StatusPage({
   showHomeLink = true,
 }: StatusPageProps) {
   return (
-    <section className="bg-black py-24 md:py-32">
+    <section className="bg-[var(--color-background)] py-24 md:py-32">
       <div className="container-shell">
         <div className="flex min-h-[60vh] items-center justify-center">
           <div className="max-w-3xl text-center">
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-accent)]">
               {eyebrow}
             </p>
-            <h1 className="display mt-6 text-[3.2rem] text-white sm:text-[4.25rem] md:text-[5.75rem]">
-              {title}
+            <h1 className="type-display-title mt-6 text-[var(--color-foreground)]">
+              <ScrambleText>{title}</ScrambleText>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/64 md:text-lg">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[var(--color-muted)] md:text-lg">
               {description}
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -36,7 +37,7 @@ export function StatusPage({
               {showHomeLink ? (
                 <Link
                   href="/"
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white/80 transition-colors hover:border-white/24 hover:text-white"
+                  className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--color-foreground)] transition-colors hover:border-[var(--color-accent)]"
                 >
                   Back Home
                 </Link>

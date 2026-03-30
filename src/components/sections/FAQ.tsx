@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { Accordion } from "@/components/ui/Accordion";
+import { ScrambleText } from "@/components/ui/ScrambleText";
 import { faqItems } from "@/lib/data";
 
 export function FAQ() {
@@ -17,10 +18,10 @@ export function FAQ() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="display text-[3.5rem] text-[var(--color-foreground)] md:text-[6rem] lg:text-[7rem]">
-              FAQ
+            <h2 className="type-display-title">
+              <ScrambleText>FAQ</ScrambleText>
             </h2>
-            <div className="mt-6 text-xl leading-[1.15] text-[var(--color-muted)]">
+            <div className="type-body-lg mt-6 text-xl leading-[1.3]">
               Got specific questions?
             </div>
             <Link

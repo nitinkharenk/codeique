@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <>
       <Navbar />
-      <main className="relative overflow-hidden">
+      <main id="main-content" className="relative overflow-hidden">
         <StatusPage
           eyebrow="(404)"
           title="Page Not Found"

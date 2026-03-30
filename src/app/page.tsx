@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
+import { HomeLoader } from "@/components/ui/HomeLoader";
 import { detectPricingGeo } from "@/lib/pricing-geo";
 
 const Work = dynamic(() =>
@@ -41,8 +42,9 @@ export default async function Home() {
 
   return (
     <>
+      <HomeLoader />
       <Navbar />
-      <main className="relative overflow-hidden">
+      <main id="main-content" className="relative overflow-hidden">
         <Hero />
         <About />
         <Work />

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { ScrambleText } from "@/components/ui/ScrambleText";
 import { whyUsStats } from "@/lib/data";
 
 export function Stats() {
@@ -19,7 +20,7 @@ export function Stats() {
           >
             <SectionLabel label="(WHY US)" />
             <h2 className="display mt-4 text-[3.5rem] text-[var(--color-foreground)] md:text-[6rem] lg:text-[7rem]">
-              Numbers Don&apos;t Lie
+              <ScrambleText>Numbers Don&apos;t Lie</ScrambleText>
             </h2>
           </motion.div>
           <motion.div

@@ -19,7 +19,7 @@ export function About() {
         >
           <motion.div variants={fadeUp}>
             <SectionLabel label="(ABOUT)" />
-            <h2 className="mt-5 max-w-4xl text-3xl font-semibold leading-[0.96] tracking-[-0.06em] md:text-5xl lg:text-6xl">
+            <h2 className="type-section-title mt-5 max-w-4xl">
               We combine years of web design and development expertise to craft
               meaningful, story-driven digital experiences.
             </h2>
@@ -28,7 +28,7 @@ export function About() {
             variants={fadeUp}
             className="rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.02] p-5 md:p-6"
           >
-            <p className="text-lg leading-[1.2] tracking-[-0.04em] text-[var(--color-muted)] md:text-2xl">
+            <p className="type-body-lg text-lg md:text-2xl md:leading-[1.35]">
               Codeique sits at the intersection of brand thinking, interface
               clarity, and front-end craft. We work with ambitious teams who
               care about how they are perceived, how they perform, and how they

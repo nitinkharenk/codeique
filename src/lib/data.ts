@@ -3,6 +3,7 @@ export const navItems = [
   { href: "/about", label: "About" },
   { href: "/works", label: "Works" },
   { href: "/#services", label: "Services" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -31,8 +32,8 @@ export const featuredProjects = [
     title: "cyberHr",
     description:
       "A multi-tenant HRMS platform for managing onboarding, attendance, leave, payroll, approvals, and workforce operations in one place.",
-    image: "/cyberHr 1.png",
-    gallery: ["/cyberHr 1.png", "/cyberHr 2.png", "/cyberHr3.png"],
+    image: "/cyberHr 1.jpg",
+    gallery: ["/cyberHr 1.jpg", "/cyberHr 2.jpg", "/cyberHr3.jpg"],
     category: "HRMS Platform",
     insight:
       "Built around enterprise-ready people operations with dashboard visibility, approval queues, payroll readiness, and secure tenant-based access.",
@@ -110,8 +111,8 @@ export const featuredProjects = [
     title: "Develozy",
     description:
       "A digital studio website for startups, growing brands, and enterprise teams covering strategy, design, development, and content systems.",
-    image: "/develozy 1.png",
-    gallery: ["/develozy 1.png", "/develozy 2.png", "/develozy 3.png"],
+    image: "/develozy 1.jpg",
+    gallery: ["/develozy 1.jpg", "/develozy 2.jpg", "/develozy 3.jpg"],
     category: "Studio Website",
     insight:
       "Showcases service offerings, editorial content, team positioning, and conversion pathways for clients looking for end-to-end digital delivery.",
@@ -189,8 +190,8 @@ export const featuredProjects = [
     title: "lastsongonly",
     description:
       "A music discovery and release archive experience built around artist pages, release notes, discovery feeds, and a dramatic editorial interface.",
-    image: "/lastsongonly 1.png",
-    gallery: ["/lastsongonly 1.png", "/lastsongonly 2.png", "/lastsongonly 3.png"],
+    image: "/lastsongonly 1.jpg",
+    gallery: ["/lastsongonly 1.jpg", "/lastsongonly 2.jpg", "/lastsongonly 3.jpg"],
     category: "Music Platform",
     insight:
       "The interface leans into a dark poster-like visual system with discovery navigation, highlighted releases, and a stage-inspired content layout.",
@@ -271,10 +272,10 @@ export function getProjectBySlug(slug: string) {
 }
 
 export const whyUsStats = [
-  { value: 150, suffix: "+", label: "Successful projects" },
+  { value: 50, suffix: "+", label: "Successful projects" },
   { value: 5, suffix: "+", label: "Years of experience" },
   { value: 98, suffix: "%", label: "Client satisfaction" },
-  { value: 2, prefix: "$", suffix: "M+", label: "Client revenue growth" },
+  { value: 200, prefix: "$", suffix: "K+", label: "Client revenue growth" },
 ] as const;
 
 export const services = [
@@ -337,22 +338,31 @@ export const processSteps = [
 
 export const testimonials = [
   {
+    avatar: "/nitin.jpeg",
     quote:
       "Codeique brought an unusual level of taste and rigor. The final product felt far more expensive than it was.",
-    name: "Nadia Chen",
-    role: "Founder, Zenith",
+    name: "Nitin",
+    role: "Founder, Develozy",
+    rating: "4.9",
+    date: "Reviewed on Aug 29, 2025",
   },
   {
+    avatar: "/viveks.jpg",
     quote:
       "We came in needing a new site. We left with a sharper story, stronger positioning, and a team our customers trust.",
-    name: "Marcus Hale",
-    role: "CEO, Vertex",
+    name: "Vivek",
+    role: "Founder, lastSongOnly",
+    rating: "4.9",
+    date: "Reviewed on Sep 04, 2025",
   },
   {
+    avatar: "/shubham.jpg",
     quote:
       "Fast, collaborative, and deeply thoughtful. Every interaction felt like working with true partners, not vendors.",
-    name: "Alina Brooks",
-    role: "Marketing Lead, Lumina",
+    name: "Shubham",
+    role: "CEO, cyberHr",
+    rating: "5.0",
+    date: "Reviewed on Sep 18, 2025",
   },
 ] as const;
 
@@ -408,8 +418,16 @@ export const faqItems = [
   },
 ] as const;
 
+export type BodyBlock =
+  | { type: "paragraph"; content: string }
+  | { type: "heading"; content: string }
+  | { type: "subheading"; content: string }
+  | { type: "quote"; content: string; attribution?: string }
+  | { type: "list"; items: string[] };
+
 export const blogPosts = [
   {
+    slug: "designing-credibility-into-early-stage-product-sites",
     title: "Designing credibility into early-stage product sites",
     category: "Strategy",
     date: "March 10, 2026",
@@ -417,8 +435,54 @@ export const blogPosts = [
     excerpt:
       "Credibility rarely comes from one loud claim. It comes from how clearly a site frames the problem, signals judgment, and removes hesitation.",
     readTime: "6 min read",
+    body: [
+      {
+        type: "paragraph" as const,
+        content:
+          "Early-stage product sites have a particular challenge. The product is often new, the team is small, and the instinct is to compensate by making bold claims. The result is a homepage full of superlatives and buzzwords that tell visitors very little — and signal, inadvertently, that the team is not yet confident enough in what they have built to describe it precisely.",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "Credibility is not built by saying you are credible. It comes from the accumulation of specific signals that collectively remove hesitation and build trust. The most effective sites do this quietly, through structure and precision rather than assertion.",
+      },
+      {
+        type: "heading" as const,
+        content: "The three levers that actually move trust",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "The first signal is problem framing. A site that clearly names the problem it solves — without hedging, without jargon — communicates expertise immediately. If a visitor reads your hero and thinks 'yes, that is exactly what I deal with,' you have already earned more trust than most landing pages achieve in their entirety. Precision in problem description tells users that you understand their world, which is the prerequisite for them believing you can improve it.",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "Social proof is the second lever, but it is frequently used incorrectly. A testimonial without context — 'This product changed my life' — provides almost no credibility signal. The same sentiment attributed to a specific person, in a specific role, at a recognizable organization, solving a recognizable problem, becomes genuinely valuable. Specificity is the mechanism. Vague praise is noise, and sophisticated buyers know the difference.",
+      },
+      {
+        type: "quote" as const,
+        content:
+          "Two companies covering identical territory will be judged differently if one describes their work precisely and the other describes it impressively. Precision wins.",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "The third element is consistency of visual judgment. A site that has clearly been made with intention — where the type is well-set, the spacing is coherent, the imagery is considered — signals that the team behind it pays attention. For a product or service business, this matters because buyers apply your product's quality of judgment to the quality of attention in your presentation. If your homepage looks like an afterthought, your product probably will too.",
+      },
+      {
+        type: "subheading" as const,
+        content: "Removing hesitation is the final discipline",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "Most credibility work is not about adding more — more logos, more quotes, more feature bullets. It is about identifying the specific doubts your visitors arrive with and eliminating them, one by one, through direct language and precise information. The sites that do this well feel focused rather than defensive. They are confident because they have anticipated the questions and answered them clearly. That quiet confidence is what converts.",
+      },
+    ] as BodyBlock[],
   },
   {
+    slug: "how-motion-can-guide-attention-without-stealing-it",
     title: "How motion can guide attention without stealing it",
     category: "Motion",
     date: "February 22, 2026",
@@ -426,8 +490,53 @@ export const blogPosts = [
     excerpt:
       "The best motion systems work like a quiet editor. They introduce structure, sequence, and focus without turning the interface into a performance.",
     readTime: "4 min read",
+    body: [
+      {
+        type: "paragraph" as const,
+        content:
+          "Motion in interfaces tends to start from the wrong question. Most teams ask: where should we add animation? The more useful question is: what does this interface need to communicate, and can motion help communicate it more clearly than static design alone? When animation begins from communication rather than decoration, it produces work that feels purposeful — not performative.",
+      },
+      {
+        type: "heading" as const,
+        content: "Motion as a communication tool",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "The best motion systems work like a quiet editor. They introduce structure, sequence, and focus without turning the interface into a performance. A well-timed entry animation tells a visitor where to look first. A subtle hover state confirms that an element is interactive. A smooth transition between states helps users maintain orientation during change. Each of these is motion doing communication work — not decoration.",
+      },
+      {
+        type: "list" as const,
+        items: [
+          "Entry animations establish reading order and content hierarchy",
+          "Hover states confirm interactivity before a click is committed",
+          "State transitions preserve spatial orientation across UI changes",
+          "Exit animations acknowledge user action and signal what changed",
+        ],
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "The most common failure mode is animation that draws attention to itself. An elaborate entrance sequence might look impressive in isolation, but in context it delays content access without providing navigational value. The measure of a well-designed animation is not how impressive it looks in a demo reel. It is how invisible it feels when users are actually trying to accomplish something.",
+      },
+      {
+        type: "quote" as const,
+        content:
+          "If a user notices your animation more than they notice what it revealed, the animation failed.",
+      },
+      {
+        type: "subheading" as const,
+        content: "Where timing separates good from great",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "Timing is where motion quality separates. Entry animations should typically be fast — 250ms to 350ms for most content reveals. Persistence states should respond quickly to feel connected to input rather than lagging behind it. Accessibility and performance are non-negotiable constraints: a motion system that does not respect prefers-reduced-motion is inaccessible to a significant portion of users. Motion should make a site feel more polished, not less reliable. The constraint is the discipline.",
+      },
+    ] as BodyBlock[],
   },
   {
+    slug: "why-editorial-layouts-still-outperform-template-thinking",
     title: "Why editorial layouts still outperform template thinking",
     category: "Design",
     date: "January 31, 2026",
@@ -435,8 +544,55 @@ export const blogPosts = [
     excerpt:
       "Editorial composition gives brands room to breathe. It creates rhythm, contrast, and narrative pacing that generic blocks rarely achieve.",
     readTime: "5 min read",
+    body: [
+      {
+        type: "paragraph" as const,
+        content:
+          "Templates solve a real problem. They give teams without design resources a reasonable starting point, and a well-made template can produce a functionally sound layout. The issue is not that templates are bad. The issue is that template thinking — the assumption that a layout is a structure you fill in — produces fundamentally different results from editorial thinking, which starts with content and hierarchy and uses composition as a tool.",
+      },
+      {
+        type: "heading" as const,
+        content: "The difference between consistency and uniformity",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "Editorial layouts are built around contrast, scale, and pacing. A strong editorial page makes deliberate choices about what gets to be large and what stays small, what earns full-bleed treatment and what belongs at normal scale, where the eye should rest and where it should be pulled forward. These decisions are not decorative. They are the primary mechanism by which a page communicates importance and creates rhythm across a scroll.",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "Template layouts tend toward uniformity. Every section gets roughly the same treatment: a heading, a subheading, a grid of cards. The logic is defensible — it is consistent, it is predictable, it works. But consistency and uniformity are not the same thing. The most effective marketing sites use consistency of voice and spacing while allowing composition to vary, which creates a reading experience that feels considered rather than assembled.",
+      },
+      {
+        type: "quote" as const,
+        content:
+          "The best layouts feel inevitable in retrospect — like the content could not have been arranged any other way. That feeling is designed, not discovered.",
+        attribution: "Codeique studio notes",
+      },
+      {
+        type: "subheading" as const,
+        content: "Where differentiated design lives",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "The practical challenge is that editorial thinking requires making decisions that templates defer. You have to decide that this section should feel different from the last one. You have to commit to a type size that feels almost too large, a white space that feels almost too generous, a contrast ratio that feels almost too stark — and trust that these choices will combine into something that feels intentional rather than accidental. That discomfort is exactly where differentiated design lives.",
+      },
+      {
+        type: "paragraph" as const,
+        content:
+          "The return on editorial investment is perception. Two sites covering identical content, with equivalent copywriting, will be judged differently if one is laid out with compositional care and the other is assembled from default patterns. The one with editorial thought will feel more credible, more premium, and more suited to whatever price point or positioning it is trying to establish. Layout is not neutral. It communicates judgment — and judgment is a primary input into trust.",
+      },
+    ] as BodyBlock[],
   },
 ] as const;
+
+export type BlogPost = (typeof blogPosts)[number];
+
+export function getBlogPostBySlug(slug: string) {
+  return blogPosts.find((post) => post.slug === slug);
+}
 
 export const aboutPillars = [
   {
